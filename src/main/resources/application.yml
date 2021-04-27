@@ -1,0 +1,40 @@
+#公共配置
+server:
+  #端口号
+  port: 8888
+  tomcat:
+    uri-encoding: UTF-8
+  #项目的访问路径
+  servlet:
+    context-path: /zc-wx
+spring:
+  profiles:
+    active: dev
+  jackson:
+    serialization:
+        FAIL_ON_EMPTY_BEANS: false
+    time-zone: Asia/Shanghai
+
+# mybatis-plus
+mybatis-plus:
+  # 检测本地配置
+  check-config-location: false
+  # mapper文件
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    # 查询map为空是保留字段
+    call-setters-on-nulls: true
+    # 设置当JDBC类型为空时,某些驱动程序 要指定值
+    jdbc-type-for-null: null
+    # 下划线转驼峰
+    map-underscore-to-camel-case: true
+  global-config:
+    # 打印banner
+    banner: false
+    # 刷新mapper
+    refresh: true
+    db-config:
+      # 更新策略
+      field-strategy: not_empty
+      # 主键类型
+      id-type: auto
